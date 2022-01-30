@@ -12,10 +12,16 @@ public class IHMCalculette extends JFrame {
         super("IHM Calculette");
         PileModele<Integer> modele = new PileModele<Integer>(new Pile2<Integer>(5));
         Controleur controle = new Controleur(modele);
-        Vue vue = new Vue(modele);
-
+        Vue vue = new Vue(modele); 
+        
+      //  Vue2 vue2 = new Vue2(modele); //we can show both vues
+        
         setLayout(new GridLayout(2, 1));
-        add(vue);
+        
+        add(vue); 
+        
+       // add(vue2); //add second vue
+        
         add(controle);
         pack();
         setLocation(200,200);

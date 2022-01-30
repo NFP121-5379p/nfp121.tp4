@@ -1,0 +1,1 @@
+En intégrant la vue2 à l'applette, il n'y a en effet que peu dechangement à apporter.

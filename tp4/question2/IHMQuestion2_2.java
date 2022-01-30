@@ -9,12 +9,18 @@ public class IHMQuestion2_2 extends JFrame {
     private JButton boutonA = new JButton("A");
     private JButton boutonB = new JButton("B");
     private JButton boutonC = new JButton("C");
-
+    //private boolean testSouris = false;
     private TextArea contenu = new TextArea(30, 80);
 
  
     public IHMQuestion2_2() {
         super("IHM Question2_2");
+       /* JRootPane rootPane = this.getRootPane();
+        /*rootPane.putClientProperty("defeatSystemEventQueueCheck", Boolean.TRUE);
+        /*try {
+        /*    testSouris = getParameter("mouse").equals("oui"); 
+        /*} catch (Exception e) {
+        }*/
         JPanel enHaut = new JPanel();
         enHaut.add(boutonA);
         enHaut.add(boutonB);
@@ -23,21 +29,31 @@ public class IHMQuestion2_2 extends JFrame {
         add("North", enHaut);
         add("Center", contenu); // contenu sera transmis aux observateurs, voir
                                 // la description des constructeurs
+          /*if (testSouris)
+          /*enHaut.setBackground(Color.magenta);
+          /*else
+          enHaut.setBackground(Color.blue);*/
         setLocation(150,150);pack();show();
         enHaut.setBackground(Color.magenta);
-        
-
-        // à compléter à l'identique de la question 2_1, (du copier/coller)...
         // le bouton A a 3 observateurs jbo1, jbo2 et jbo3
-
+        boutonA.addActionListener(new JButtonObserver("jbo1", contenu));
+        boutonA.addActionListener(new JButtonObserver("jbo2", contenu));
+        boutonA.addActionListener(new JButtonObserver("jbo3", contenu));
         // le bouton B a 2 observateurs jbo1 et jbo2
+        boutonB.addActionListener(new JButtonObserver("jbo1", contenu));
+        boutonB.addActionListener(new JButtonObserver("jbo2", contenu));
 
         // le bouton C a 1 observateur jbo1
-
-        // à compléter pour la question 2_2 (JMouseObserver)
+        boutonC.addActionListener(new JButtonObserver("jbo1", contenu));
+          
+        //if (testSouris) { 
             // le bouton A a 1 observateur jmo1
+            boutonA.addMouseListener(new JMouseObserver("jmo1", contenu));
             // le bouton B a 1 observateur jmo2
+            boutonB.addMouseListener(new JMouseObserver("jmo2", contenu));
             // le bouton C a 1 observateur jmo3
+            boutonC.addMouseListener(new JMouseObserver("jmo3", contenu)); 
+        //}
         
     }
     
